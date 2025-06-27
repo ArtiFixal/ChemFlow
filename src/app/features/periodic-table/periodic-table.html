@@ -1,0 +1,31 @@
+<article>
+    <mat-form-field id="searchField">
+        <mat-label>Search query</mat-label>
+        <input matInput placeholder="Ex. Helium" [value]="periodicStore.query()" (input)="onQueryChange($event)">
+    </mat-form-field>
+
+    <mat-table [dataSource]="elementSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef>Position</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.position}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef>Weight</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef>Symbol</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.symbol}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</article>

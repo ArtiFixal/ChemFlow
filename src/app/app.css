@@ -1,3 +1,6 @@
+main{
+    margin: 34px 5%;
+}
 .headerContainer{
     color: var(--mat-sys-primary);
     background: var(--mat-sys-primary-container);
