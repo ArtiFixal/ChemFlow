@@ -21,12 +21,15 @@ export class PeriodicElementService {
     if(!query)
       elements=ELEMENT_DATA;
     else
+    {
+      const queryLowerCase=query.toLocaleLowerCase();
       elements=ELEMENT_DATA.filter(element=>
-        element.position.toString().includes(query) ||
-        element.name.includes(query) ||
-        element.symbol.includes(query) ||
-        element.weight.toString().includes(query)
+        element.position.toString().includes(queryLowerCase) ||
+        element.name.toLocaleLowerCase().includes(queryLowerCase) ||
+        element.symbol.toLocaleLowerCase().includes(queryLowerCase) ||
+        element.weight.toString().includes(queryLowerCase)
       );
+    }
     return of(elements)
       .pipe(delay(this.simulateDelay(50,250)));
   }
