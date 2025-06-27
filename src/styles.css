@@ -1,6 +1,5 @@
-*{
-    color: #FFF
-}
 body {
-    background: #1E1E1E
+    background: var(--mat-sys-background)
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
