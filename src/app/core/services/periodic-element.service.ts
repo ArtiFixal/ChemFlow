@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PeriodicElement } from '../models/periodic-element.model';
-import { delay, Observable, of } from 'rxjs';
+import { delay, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,23 @@ export class PeriodicElementService {
     }
     return of(elements)
       .pipe(delay(this.simulateDelay(50,250)));
+  }
+
+  public updatePeriodicElement(updatedData:PeriodicElement):Observable<PeriodicElement>
+  {
+    return of(ELEMENT_DATA).pipe(
+      map(()=>{
+         let toUpdate=ELEMENT_DATA.find(element=>element.position===updatedData.position);
+         if(toUpdate)
+         {
+          toUpdate.name=updatedData.name;
+          toUpdate.position=updatedData.position;
+          toUpdate.symbol=updatedData.symbol;
+          toUpdate.weight=updatedData.weight;
+         }
+         return updatedData;
+      })
+    );
   }
 }
 

@@ -37,6 +37,22 @@ export const PeriodicElementsStore = signalStore(
                                 )
                     )
                 )
+            ),
+            updatePeriodicElement: rxMethod<PeriodicElement>(
+                pipe(
+                    tap(()=>patchState(store,{loading:true})),
+                    switchMap((element)=>periodicService.updatePeriodicElement(element)
+                                .pipe(
+                                    // On success find edited element and replace it
+                                    tap(response=>patchState(store, (state)=>({
+                                        periodicElements: state.periodicElements.map(element=>
+                                            element.position===response.position ? response : element
+                                        )
+                                    })))
+                                )
+                    ),
+                    finalize(()=>patchState(store,{loading:false}))
+                )
             )
         }
     }),
