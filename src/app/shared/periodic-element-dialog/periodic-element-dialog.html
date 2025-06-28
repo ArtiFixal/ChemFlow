@@ -1,0 +1,25 @@
+<section>
+    <h3 mat-dialog-title>{{data.dialogTitle}}</h3>
+    <mat-dialog-content class="flexColumn">
+        <mat-form-field>
+            <mat-label>Position</mat-label>
+            <input matInput [(ngModel)]="data.element.position">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Symbol</mat-label>
+            <input matInput [(ngModel)]="data.element.symbol">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="data.element.name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Weight</mat-label>
+            <input matInput [(ngModel)]="data.element.weight">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button matButton (click)="onClickClose()">Cancel</button>
+        <button matButton [mat-dialog-close]="element()" cdkFocusInitial>{{data.actionText}}</button>
+    </mat-dialog-actions>
+</section>
