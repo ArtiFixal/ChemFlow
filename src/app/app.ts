@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PeriodicTable } from "./features/periodic-table/periodic-table";
 
 @Component({
   selector: 'app-root',
-  imports: [MatToolbarModule, RouterOutlet, PeriodicTable],
+  imports: [MatToolbarModule, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
