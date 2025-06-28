@@ -5,3 +5,10 @@
 .headerText{
     color: var(--mat-sys-primary);
 }
+.periodicTableRow{
+    transition: 230ms ease-in-out;
+    cursor: pointer;
+}
+.periodicTableRow:hover{
+    background: var(--mat-sys-inverse-on-surface);
+}
